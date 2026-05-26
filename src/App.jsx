@@ -1,7 +1,7 @@
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
-const YELLOW = "#F5B82E";
+const YELLOW = "#F2D976";
 const BLUE = "#1E4A8E";
 const CORAL = "#E85A2C";
 const CREAM = "#F8F2E4";
@@ -43,7 +43,7 @@ function WavyBadge(props) {
       <svg viewBox="0 0 400 280" preserveAspectRatio="none" style={{
         position: "absolute", top: 0, left: 0, width: "100%", height: "100%", zIndex: 0,
       }}>
-        <path d="M 8,30 Q 20,8 40,12 Q 70,15 100,10 Q 130,5 160,12 Q 190,18 220,10 Q 250,4 280,12 Q 310,18 340,10 Q 365,5 385,15 Q 395,30 392,55 Q 388,80 392,110 Q 396,140 390,170 Q 384,200 392,225 Q 396,250 380,265 Q 360,275 335,270 Q 305,265 275,272 Q 245,278 215,270 Q 185,265 155,272 Q 125,278 95,270 Q 65,265 35,270 Q 15,272 8,250 Q 4,225 10,200 Q 16,170 10,140 Q 4,110 10,80 Q 16,55 8,30 Z"
+        <path d="M 7,7 Q 10.5,9.6 14.0,7.0 Q 17.5,4.4 21.0,7.0 Q 24.5,9.6 28.1,7.0 Q 31.6,4.4 35.1,7.0 Q 38.6,9.6 42.1,7.0 Q 45.6,4.4 49.1,7.0 Q 52.6,9.6 56.1,7.0 Q 59.6,4.4 63.1,7.0 Q 66.7,9.6 70.2,7.0 Q 73.7,4.4 77.2,7.0 Q 80.7,9.6 84.2,7.0 Q 87.7,4.4 91.2,7.0 Q 94.7,9.6 98.2,7.0 Q 101.7,4.4 105.3,7.0 Q 108.8,9.6 112.3,7.0 Q 115.8,4.4 119.3,7.0 Q 122.8,9.6 126.3,7.0 Q 129.8,4.4 133.3,7.0 Q 136.8,9.6 140.3,7.0 Q 143.9,4.4 147.4,7.0 Q 150.9,9.6 154.4,7.0 Q 157.9,4.4 161.4,7.0 Q 164.9,9.6 168.4,7.0 Q 171.9,4.4 175.4,7.0 Q 178.9,9.6 182.5,7.0 Q 186.0,4.4 189.5,7.0 Q 193.0,9.6 196.5,7.0 Q 200.0,4.4 203.5,7.0 Q 207.0,9.6 210.5,7.0 Q 214.0,4.4 217.5,7.0 Q 221.1,9.6 224.6,7.0 Q 228.1,4.4 231.6,7.0 Q 235.1,9.6 238.6,7.0 Q 242.1,4.4 245.6,7.0 Q 249.1,9.6 252.6,7.0 Q 256.1,4.4 259.7,7.0 Q 263.2,9.6 266.7,7.0 Q 270.2,4.4 273.7,7.0 Q 277.2,9.6 280.7,7.0 Q 284.2,4.4 287.7,7.0 Q 291.2,9.6 294.7,7.0 Q 298.3,4.4 301.8,7.0 Q 305.3,9.6 308.8,7.0 Q 312.3,4.4 315.8,7.0 Q 319.3,9.6 322.8,7.0 Q 326.3,4.4 329.8,7.0 Q 333.3,9.6 336.9,7.0 Q 340.4,4.4 343.9,7.0 Q 347.4,9.6 350.9,7.0 Q 354.4,4.4 357.9,7.0 Q 361.4,9.6 364.9,7.0 Q 368.4,4.4 371.9,7.0 Q 375.5,9.6 379.0,7.0 Q 382.5,4.4 386.0,7.0 Q 389.5,9.6 393.0,7.0 Q 395.6,10.5 393.0,14.0 Q 390.4,17.5 393.0,21.0 Q 395.6,24.5 393.0,28.0 Q 390.4,31.5 393.0,35.0 Q 395.6,38.5 393.0,42.0 Q 390.4,45.5 393.0,49.0 Q 395.6,52.5 393.0,56.0 Q 390.4,59.5 393.0,63.0 Q 395.6,66.5 393.0,70.0 Q 390.4,73.5 393.0,77.0 Q 395.6,80.5 393.0,84.0 Q 390.4,87.5 393.0,91.0 Q 395.6,94.5 393.0,98.0 Q 390.4,101.5 393.0,105.0 Q 395.6,108.5 393.0,112.0 Q 390.4,115.5 393.0,119.0 Q 395.6,122.5 393.0,126.0 Q 390.4,129.5 393.0,133.0 Q 395.6,136.5 393.0,140.0 Q 390.4,143.5 393.0,147.0 Q 395.6,150.5 393.0,154.0 Q 390.4,157.5 393.0,161.0 Q 395.6,164.5 393.0,168.0 Q 390.4,171.5 393.0,175.0 Q 395.6,178.5 393.0,182.0 Q 390.4,185.5 393.0,189.0 Q 395.6,192.5 393.0,196.0 Q 390.4,199.5 393.0,203.0 Q 395.6,206.5 393.0,210.0 Q 390.4,213.5 393.0,217.0 Q 395.6,220.5 393.0,224.0 Q 390.4,227.5 393.0,231.0 Q 395.6,234.5 393.0,238.0 Q 390.4,241.5 393.0,245.0 Q 395.6,248.5 393.0,252.0 Q 390.4,255.5 393.0,259.0 Q 395.6,262.5 393.0,266.0 Q 390.4,269.5 393.0,273.0 Q 389.5,275.6 386.0,273.0 Q 382.5,270.4 379.0,273.0 Q 375.5,275.6 371.9,273.0 Q 368.4,270.4 364.9,273.0 Q 361.4,275.6 357.9,273.0 Q 354.4,270.4 350.9,273.0 Q 347.4,275.6 343.9,273.0 Q 340.4,270.4 336.9,273.0 Q 333.3,275.6 329.8,273.0 Q 326.3,270.4 322.8,273.0 Q 319.3,275.6 315.8,273.0 Q 312.3,270.4 308.8,273.0 Q 305.3,275.6 301.8,273.0 Q 298.3,270.4 294.7,273.0 Q 291.2,275.6 287.7,273.0 Q 284.2,270.4 280.7,273.0 Q 277.2,275.6 273.7,273.0 Q 270.2,270.4 266.7,273.0 Q 263.2,275.6 259.7,273.0 Q 256.1,270.4 252.6,273.0 Q 249.1,275.6 245.6,273.0 Q 242.1,270.4 238.6,273.0 Q 235.1,275.6 231.6,273.0 Q 228.1,270.4 224.6,273.0 Q 221.1,275.6 217.5,273.0 Q 214.0,270.4 210.5,273.0 Q 207.0,275.6 203.5,273.0 Q 200.0,270.4 196.5,273.0 Q 193.0,275.6 189.5,273.0 Q 186.0,270.4 182.5,273.0 Q 178.9,275.6 175.4,273.0 Q 171.9,270.4 168.4,273.0 Q 164.9,275.6 161.4,273.0 Q 157.9,270.4 154.4,273.0 Q 150.9,275.6 147.4,273.0 Q 143.9,270.4 140.3,273.0 Q 136.8,275.6 133.3,273.0 Q 129.8,270.4 126.3,273.0 Q 122.8,275.6 119.3,273.0 Q 115.8,270.4 112.3,273.0 Q 108.8,275.6 105.3,273.0 Q 101.7,270.4 98.2,273.0 Q 94.7,275.6 91.2,273.0 Q 87.7,270.4 84.2,273.0 Q 80.7,275.6 77.2,273.0 Q 73.7,270.4 70.2,273.0 Q 66.7,275.6 63.1,273.0 Q 59.6,270.4 56.1,273.0 Q 52.6,275.6 49.1,273.0 Q 45.6,270.4 42.1,273.0 Q 38.6,275.6 35.1,273.0 Q 31.6,270.4 28.1,273.0 Q 24.5,275.6 21.0,273.0 Q 17.5,270.4 14.0,273.0 Q 10.5,275.6 7.0,273.0 Q 9.6,269.5 7.0,266.0 Q 4.4,262.5 7.0,259.0 Q 9.6,255.5 7.0,252.0 Q 4.4,248.5 7.0,245.0 Q 9.6,241.5 7.0,238.0 Q 4.4,234.5 7.0,231.0 Q 9.6,227.5 7.0,224.0 Q 4.4,220.5 7.0,217.0 Q 9.6,213.5 7.0,210.0 Q 4.4,206.5 7.0,203.0 Q 9.6,199.5 7.0,196.0 Q 4.4,192.5 7.0,189.0 Q 9.6,185.5 7.0,182.0 Q 4.4,178.5 7.0,175.0 Q 9.6,171.5 7.0,168.0 Q 4.4,164.5 7.0,161.0 Q 9.6,157.5 7.0,154.0 Q 4.4,150.5 7.0,147.0 Q 9.6,143.5 7.0,140.0 Q 4.4,136.5 7.0,133.0 Q 9.6,129.5 7.0,126.0 Q 4.4,122.5 7.0,119.0 Q 9.6,115.5 7.0,112.0 Q 4.4,108.5 7.0,105.0 Q 9.6,101.5 7.0,98.0 Q 4.4,94.5 7.0,91.0 Q 9.6,87.5 7.0,84.0 Q 4.4,80.5 7.0,77.0 Q 9.6,73.5 7.0,70.0 Q 4.4,66.5 7.0,63.0 Q 9.6,59.5 7.0,56.0 Q 4.4,52.5 7.0,49.0 Q 9.6,45.5 7.0,42.0 Q 4.4,38.5 7.0,35.0 Q 9.6,31.5 7.0,28.0 Q 4.4,24.5 7.0,21.0 Q 9.6,17.5 7.0,14.0 Q 4.4,10.5 7.0,7.0 Z"
           fill={fill} />
       </svg>
       <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
@@ -64,6 +64,18 @@ function WavyDivider(props) {
   );
 }
 
+// Torn-paper edge divider (Image 3 style) - top section tears into bottom
+function TornDivider(props) {
+  var topColor = props.topColor; var bottomColor = props.bottomColor;
+  return (
+    <div style={{ lineHeight: 0, background: topColor }}>
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style={{ display: "block", width: "100%", height: 46 }}>
+        <path d="M0,38 C90,20 170,52 260,40 C350,28 420,10 520,30 C620,50 710,56 820,40 C930,24 1010,50 1120,42 C1230,34 1320,52 1440,40 L1440,70 L0,70 Z" fill={bottomColor} />
+      </svg>
+    </div>
+  );
+}
+
 // Tab/label like "OFERTA DO DIA"
 function SectionLabel(props) {
   var text = props.text; var color = props.color || CORAL; var center = props.center;
@@ -79,23 +91,38 @@ function SectionLabel(props) {
   );
 }
 
-// Logo mark (the "B" with the wink/dot)
-function LogoMark(props) {
-  var size = props.size || 36; var color = props.color || BLUE;
+// === LOGO FAMILY — "The Wink" ===
+// Core icon: circle eye + offset pupil dot + little notch on top
+function WinkIcon(props) {
+  var size = props.size || 36; var color = props.color || BLUE; var stroke = props.stroke || 2;
   return (
-    <div style={{ width: size, height: size, position: "relative", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-      <span style={{
-        fontFamily: "'Fraunces', 'Playfair Display', serif",
-        fontSize: size * 0.7, fontWeight: 900, color: color,
-        fontStyle: "italic", letterSpacing: "-0.02em",
-      }}>B</span>
-      <span style={{
-        position: "absolute", top: "20%", right: "8%",
-        width: size * 0.18, height: size * 0.18, borderRadius: "50%",
-        border: "1.5px solid " + color,
-      }} />
+    <svg width={size} height={size} viewBox="0 0 48 48" fill="none" style={{ display: "block", flexShrink: 0 }}>
+      {/* eye circle */}
+      <circle cx="24" cy="26" r="15.5" stroke={color} strokeWidth={stroke} fill="none" />
+      {/* pupil */}
+      <circle cx="30.5" cy="21.5" r="3.1" fill={color} />
+    </svg>
+  );
+}
+
+// Full stacked lockup: wink + BUILT / by AE  (the "primary lockup")
+function WinkLockup(props) {
+  var size = props.size || 1; var color = props.color || BLUE; var sub = props.sub || color;
+  return (
+    <div style={{ display: "inline-flex", flexDirection: "column", alignItems: "center", lineHeight: 1, gap: 6 * size }}>
+      <WinkIcon size={42 * size} color={color} stroke={2.2} />
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", lineHeight: 0.92 }}>
+        <span style={{ fontFamily: "'DM Serif Display', serif", fontWeight: 900, fontSize: 30 * size, color: color, letterSpacing: "0.04em" }}>BUILT</span>
+        <span style={{ fontFamily: "'Caveat', cursive", fontWeight: 600, fontSize: 22 * size, color: sub, marginTop: -2 * size }}>by AE</span>
+      </div>
     </div>
   );
+}
+
+// Logo mark used in nav/footer — wink icon (kept same signature: size, color)
+function LogoMark(props) {
+  var size = props.size || 36; var color = props.color || BLUE;
+  return <WinkIcon size={size} color={color} stroke={2.2} />;
 }
 
 // Decorative dot/eye accent
@@ -119,11 +146,13 @@ function SmallDot(props) {
 function VideoCard(props) {
   var num = props.num; var label = props.label; var sub = props.sub;
   var color = props.color; var desc = props.desc; var idx = props.idx;
+  var onOpen = props.onOpen;
   var h = useState(false); var hov = h[0]; var setHov = h[1];
 
   return (
     <FadeUp delay={idx * 0.1}>
       <div
+        onClick={function() { if (onOpen) onOpen(props); }}
         onMouseEnter={function() { setHov(true); }}
         onMouseLeave={function() { setHov(false); }}
         style={{
@@ -131,6 +160,7 @@ function VideoCard(props) {
           border: "2px solid " + (hov ? color : INK + "12"),
           borderRadius: 4,
           overflow: "hidden",
+          cursor: "pointer",
           transition: "all 0.3s ease",
           transform: hov ? "translateY(-6px)" : "none",
           boxShadow: hov ? "0 18px 40px " + color + "33" : "0 2px 12px rgba(26,26,26,0.05)",
@@ -142,60 +172,82 @@ function VideoCard(props) {
             letterSpacing: "0.18em", textTransform: "uppercase", color: WARM_WHITE,
           }}>{sub}</span>
           <span style={{
-            fontFamily: "'Fraunces', 'Playfair Display', serif", fontSize: 22, fontWeight: 900,
+            fontFamily: "'DM Serif Display', serif", fontSize: 22, fontWeight: 900,
             color: WARM_WHITE, fontStyle: "italic", lineHeight: 1,
           }}>{num}</span>
         </div>
         {/* Video preview */}
         <div style={{
-          margin: "16px 18px 0", aspectRatio: "4/5",
+          margin: "16px 18px 0", aspectRatio: "9/16",
           background: hov ? color + "20" : color + "0e",
-          border: "1.5px dashed " + color + "44",
+          border: "1.5px solid " + color + "33",
           borderRadius: 3,
           display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
           position: "relative", transition: "all 0.3s",
         }}>
           <div style={{
-            width: 48, height: 48, borderRadius: "50%", background: color,
+            width: 54, height: 54, borderRadius: "50%", background: hov ? color : WARM_WHITE,
             display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 6px 20px " + color + "55",
+            boxShadow: "0 6px 20px " + color + "55", transition: "all 0.3s",
           }}>
             <div style={{
               width: 0, height: 0,
-              borderTop: "8px solid transparent", borderBottom: "8px solid transparent",
-              borderLeft: "14px solid " + WARM_WHITE, marginLeft: 3,
+              borderTop: "9px solid transparent", borderBottom: "9px solid transparent",
+              borderLeft: "15px solid " + (hov ? WARM_WHITE : color), marginLeft: 4, transition: "all 0.3s",
             }} />
           </div>
           <div style={{
             position: "absolute", bottom: 12,
-            fontFamily: "'DM Sans', sans-serif", fontSize: 9,
-            fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase",
-            color: color, opacity: 0.7,
-          }}>Coming Soon</div>
+            fontFamily: "'DM Sans', sans-serif", fontSize: 9.5,
+            fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase",
+            color: WARM_WHITE, background: color, padding: "5px 14px", borderRadius: 100,
+          }}>&#9654; Watch</div>
         </div>
         <div style={{ padding: "18px 20px 22px" }}>
           <div style={{
-            fontFamily: "'Fraunces', 'Playfair Display', serif",
+            fontFamily: "'DM Serif Display', serif",
             fontSize: 26, fontWeight: 900, color: BLUE, marginBottom: 6,
             letterSpacing: "-0.01em", textTransform: "uppercase",
           }}>{label}</div>
           <div style={{
             fontFamily: "'DM Sans', sans-serif", fontSize: 12.5, color: INK + "aa",
-            lineHeight: 1.75, marginBottom: 14,
+            lineHeight: 1.75,
           }}>{desc}</div>
-          <div style={{
-            display: "flex", alignItems: "center", gap: 7,
-            paddingTop: 12, borderTop: "1px dashed " + INK + "20",
-          }}>
-            <EyeDot color={color} size={14} />
-            <span style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 800,
-              letterSpacing: "0.1em", textTransform: "uppercase", color: color,
-            }}>Request Sample</span>
-          </div>
         </div>
       </div>
     </FadeUp>
+  );
+}
+
+// Video modal player
+function VideoModal(props) {
+  var vid = props.vid; var onClose = props.onClose;
+  useEffect(function() {
+    function k(e) { if (e.key === "Escape" && onClose) onClose(); }
+    window.addEventListener("keydown", k);
+    return function() { window.removeEventListener("keydown", k); };
+  }, [vid]);
+  if (!vid) return null;
+  return (
+    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 1000, background: "rgba(15,42,82,0.92)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20, backdropFilter: "blur(6px)" }}>
+      <div onClick={function(e) { e.stopPropagation(); }} style={{ position: "relative", width: "min(340px, 92vw)" }}>
+        <button onClick={onClose} aria-label="Close" style={{ position: "absolute", top: -42, right: 0, background: "none", border: "none", color: WARM_WHITE, fontSize: 26, cursor: "pointer", lineHeight: 1 }}>&#10005;</button>
+        <div style={{ aspectRatio: "9/16", borderRadius: 8, overflow: "hidden", background: "#000", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 14, border: "1px solid " + WARM_WHITE + "22" }}>
+          {vid.src ? (
+            <video src={vid.src} controls autoPlay playsInline style={{ width: "100%", height: "100%", objectFit: "contain", background: "#000" }} />
+          ) : (
+            <React.Fragment>
+              <div style={{ width: 60, height: 60, borderRadius: "50%", background: vid.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: 0, height: 0, borderTop: "10px solid transparent", borderBottom: "10px solid transparent", borderLeft: "17px solid " + WARM_WHITE, marginLeft: 4 }} />
+              </div>
+              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: WARM_WHITE + "99", textAlign: "center", padding: "0 24px", lineHeight: 1.7 }}>
+                {vid.label} - {vid.sub}<br />video drops in here
+              </div>
+            </React.Fragment>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -206,6 +258,8 @@ export default function App() {
   var fm = useState({ name: "", brand: "", email: "", type: "", msg: "" });
   var form = fm[0]; var setForm = fm[1];
   var sn = useState(false); var sent = sn[0]; var setSent = sn[1];
+  var ov = useState(null); var openVid = ov[0]; var setOpenVid = ov[1];
+  var ft = useState("All"); var filter = ft[0]; var setFilter = ft[1];
 
   useEffect(function() {
     var fn = function() { setScrolled(window.scrollY > 55); };
@@ -218,10 +272,10 @@ export default function App() {
   var CREATORS = {
     aaron: {
       name: "Aaron", initial: "A", color: BLUE,
-      role: "Health Expert", sub: "On-Camera Lead",
+      role: "Optician + Nutrition", sub: "On-Camera Lead",
       origin: "Chinese-Canadian",
-      bio: "Aaron studied nutrition science and worked as a licensed optician before relocating to Vancouver. That rare dual expertise across food science and eye health makes him credible for fitness, nutrition, and eyewear brands. He is now documenting his own body transformation on camera, week by week, no filters.",
-      skills: ["Nutrition Science", "Licensed Optician", "Body Transformation", "Expert-Led Content"],
+      bio: "Aaron is a licensed optician who also completed nutrition education, and speaks from that nutrition background on camera. He lost 50 lbs and documents his own transformation week by week, no filters - credible for fitness, nutrition, and eyewear brands.",
+      skills: ["Nutrition Background", "Licensed Optician", "Body Transformation", "Expert-Led Content"],
     },
     ellen: {
       name: "Ellen", initial: "E", color: CORAL,
@@ -234,18 +288,22 @@ export default function App() {
       name: "Together", initial: "AE", color: DEEP_BLUE,
       role: "Content Studio", sub: "Aaron + Ellen",
       origin: "Vancouver, BC",
-      bio: "A credentialed health expert and a trained designer, building content from their real life in Vancouver. Their work covers the full wellness spectrum - nutrition, fitness, eyewear, lifestyle - with the visual quality and authentic dynamic that brands spend entire budgets trying to recreate.",
+      bio: "A licensed optician with a nutrition background and a trained designer, building content from their real life in Vancouver. Their work covers the full wellness spectrum - nutrition, fitness, eyewear, lifestyle - with the visual quality and authentic dynamic that brands spend entire budgets trying to recreate.",
       skills: ["Couple Content", "Expert + Aesthetic", "Real Dynamic", "Brand Flexible"],
     },
   };
   var cr = CREATORS[activeCreator];
 
   var VIDS = [
-    { num: "01", label: "Testimonial", sub: "Review Style", color: BLUE, desc: "Credible, trust-building reviews grounded in real expertise. Aaron's health background makes every word land differently." },
-    { num: "02", label: "Unboxing", sub: "First Impression", color: CORAL, desc: "Real reactions, beautiful framing. The moment of discovery captured with Ellen's aesthetic eye." },
-    { num: "03", label: "Lifestyle", sub: "Integration", color: YELLOW, desc: "Your product inside our real Vancouver life. Morning routines, meal prep, training days. Nothing staged." },
-    { num: "04", label: "Educational", sub: "Expert Explainer", color: DEEP_BLUE, desc: "Aaron's dual nutrition and optician background turns product education into high-converting expert content." },
+    { num: "01", label: "Testimonial", sub: "Review Style", type: "Testimonial", color: BLUE, desc: "Credible, trust-building reviews grounded in real expertise.", src: "/videos/video1.mp4" },
+    { num: "02", label: "Unboxing", sub: "First Impression", type: "Unboxing", color: CORAL, desc: "Real reactions, beautiful framing. The moment of discovery.", src: "/videos/video2.mp4" },
+    { num: "03", label: "Lifestyle", sub: "Integration", type: "Lifestyle", color: YELLOW, desc: "Your product inside our real Vancouver life. Nothing staged.", src: "/videos/video3.mp4" },
+    { num: "04", label: "Educational", sub: "Expert Explainer", type: "Educational", color: DEEP_BLUE, desc: "Optician and nutrition background turned into expert content.", src: "/videos/video4.mp4" },
+    { num: "05", label: "Testimonial", sub: "Review Style", type: "Testimonial", color: BLUE, desc: "An honest, results-driven review that brands can stand behind.", src: "/videos/video5.mp4" },
+    { num: "06", label: "Lifestyle", sub: "Integration", type: "Lifestyle", color: CORAL, desc: "Gym-day integration that feels native to the feed.", src: "/videos/video6.mp4" },
   ];
+  var VID_TYPES = ["All", "Testimonial", "Unboxing", "Lifestyle", "Educational"];
+  var shownVids = filter === "All" ? VIDS : VIDS.filter(function(v) { return v.type === filter; });
 
   var SVCS = [
     { n: "Single Video", price: "By Inquiry", d: "One polished UGC video. Testimonial, unboxing, lifestyle, or educational. Delivered in 7 days.", c: BLUE, items: ["30-60s edited video", "Pro audio and color", "2 revision rounds", "Usage rights"] },
@@ -264,7 +322,7 @@ export default function App() {
   return (
     <div style={{ background: WARM_WHITE, color: INK, fontFamily: "'DM Sans', sans-serif", overflowX: "hidden" }}>
       <style>{
-        "@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=Caveat:wght@500;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap');" +
+        "@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,700;1,9..144,900&family=DM+Serif+Display:ital@0;1&family=Caveat:wght@500;700&family=DM+Sans:wght@300;400;500;600;700;800&display=swap');" +
         "*{box-sizing:border-box;margin:0;padding:0;}" +
         "html{scroll-behavior:smooth;background:" + WARM_WHITE + ";}" +
         "body{background:" + WARM_WHITE + ";}" +
@@ -289,7 +347,7 @@ export default function App() {
         ".inp:focus{border-color:" + BLUE + ";}" +
         ".inp::placeholder{color:" + INK + "55;}" +
         ".ctab{padding:10px 22px;border-radius:100px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.05em;border:2px solid transparent;transition:all 0.22s;text-transform:uppercase;}" +
-        ".display{font-family:'Fraunces','Playfair Display',serif;font-weight:900;letter-spacing:-0.025em;line-height:0.95;}" +
+        ".display{font-family:'DM Serif Display','DM Serif Display',serif;font-weight:400;letter-spacing:-0.015em;line-height:0.98;}" +
         ".script{font-family:'Caveat',cursive;font-weight:600;}" +
         "@media(max-width:900px){.dn{display:none!important;}.sm{display:flex!important;}.tc{grid-template-columns:1fr!important;}.fc{grid-template-columns:repeat(2,1fr)!important;}.sg{grid-template-columns:1fr!important;}}" +
         "@media(max-width:520px){.fc{grid-template-columns:1fr!important;}}"
@@ -307,7 +365,7 @@ export default function App() {
           <div onClick={function() { go("hero"); }} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
             <LogoMark size={38} color={BLUE} />
             <div>
-              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 20, fontWeight: 900, color: BLUE, letterSpacing: "-0.02em" }}>BuiltByAE</div>
+              <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, fontWeight: 900, color: BLUE, letterSpacing: "-0.02em" }}>BuiltByAE</div>
               <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 9, color: CORAL, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: -1 }}>Made in Vancouver</div>
             </div>
           </div>
@@ -344,21 +402,18 @@ export default function App() {
                 <SectionLabel text="UGC Content Studio - Vancouver, BC" color={CORAL} />
               </div>
 
-              <div className="a2 display" style={{ fontSize: "clamp(56px, 9vw, 124px)", color: BLUE, marginBottom: 4, textTransform: "uppercase" }}>
-                BUILT
+              <div className="a2 display" style={{ fontSize: "clamp(56px, 9vw, 124px)", color: BLUE, marginBottom: 8, textTransform: "uppercase" }}>
+                BUILT BY
               </div>
-              <div className="a3" style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 4 }}>
-                <span className="display" style={{ fontSize: "clamp(56px, 9vw, 124px)", color: BLUE, textTransform: "uppercase" }}>BY</span>
+              <div className="a3" style={{ display: "flex", alignItems: "baseline", gap: 16, flexWrap: "wrap", marginBottom: 36 }}>
                 <span style={{
-                  fontFamily: "'Fraunces', serif", fontStyle: "italic", fontWeight: 400,
+                  fontFamily: "'DM Serif Display', serif", fontStyle: "italic", fontWeight: 400,
                   fontSize: "clamp(36px, 5.5vw, 78px)", color: CORAL,
                   letterSpacing: "-0.01em", lineHeight: 0.9,
                 }}>aaron</span>
-              </div>
-              <div className="a4" style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 36 }}>
-                <span className="display" style={{ fontSize: "clamp(56px, 9vw, 124px)", color: BLUE, textTransform: "uppercase" }}>AND</span>
+                <span className="display" style={{ fontSize: "clamp(32px, 4.5vw, 56px)", color: BLUE, textTransform: "uppercase" }}>AND</span>
                 <span style={{
-                  fontFamily: "'Fraunces', serif", fontStyle: "italic", fontWeight: 400,
+                  fontFamily: "'DM Serif Display', serif", fontStyle: "italic", fontWeight: 400,
                   fontSize: "clamp(36px, 5.5vw, 78px)", color: CORAL,
                   letterSpacing: "-0.01em", lineHeight: 0.9,
                 }}>ellen.</span>
@@ -392,7 +447,7 @@ export default function App() {
                 <WavyBadge fill={YELLOW} style={{ padding: "56px 48px 64px" }}>
                   <SectionLabel text="Today's Offer" color={CORAL} />
                   <div style={{
-                    fontFamily: "'Fraunces',serif", fontSize: 14,
+                    fontFamily: "'DM Serif Display',serif", fontSize: 14,
                     color: BLUE, letterSpacing: "0.18em", textTransform: "uppercase",
                     fontWeight: 700, marginBottom: 6, marginTop: 8,
                   }}>UGC Studio</div>
@@ -400,8 +455,8 @@ export default function App() {
                     Fresh<br />Content
                   </div>
                   <div style={{ display: "flex", alignItems: "flex-start", gap: 6, marginBottom: 14 }}>
-                    <span style={{ fontFamily: "'Fraunces',serif", fontSize: 24, color: CORAL, fontWeight: 700, marginTop: 14 }}>2X</span>
-                    <span style={{ fontFamily: "'Fraunces',serif", fontSize: 80, color: CORAL, fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.04em" }}>Experts</span>
+                    <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, color: CORAL, fontWeight: 700, marginTop: 14 }}>2X</span>
+                    <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 80, color: CORAL, fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.04em" }}>Experts</span>
                   </div>
                   <div style={{
                     fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: BLUE,
@@ -422,7 +477,7 @@ export default function App() {
                           borderBottom: i < 3 ? "1px solid " + BLUE + "22" : "none",
                         }}>
                           <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 700 }}>{row[1]}</span>
-                          <span style={{ fontFamily: "'Fraunces',serif", fontSize: 19, fontWeight: 900, color: BLUE, letterSpacing: "0.01em", textTransform: "uppercase" }}>{row[0]}</span>
+                          <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 19, fontWeight: 900, color: BLUE, letterSpacing: "0.01em", textTransform: "uppercase" }}>{row[0]}</span>
                         </div>
                       );
                     })}
@@ -448,7 +503,7 @@ export default function App() {
 
         {/* Bottom yellow strip */}
         <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: YELLOW, padding: "14px 0", overflow: "hidden", whiteSpace: "nowrap" }}>
-          <div style={{ display: "flex", gap: 40, animation: "marquee 30s linear infinite", fontFamily: "'Fraunces',serif", fontSize: 14, fontWeight: 700, color: BLUE, letterSpacing: "0.16em", textTransform: "uppercase" }}>
+          <div style={{ display: "flex", gap: 40, animation: "marquee 30s linear infinite", fontFamily: "'DM Serif Display',serif", fontSize: 14, fontWeight: 700, color: BLUE, letterSpacing: "0.16em", textTransform: "uppercase" }}>
             {Array(20).fill(0).map(function(_, i) {
               return <span key={i} style={{ display: "flex", alignItems: "center", gap: 40 }}>UGC Studio<SmallDot color={CORAL} size={5} />Content<SmallDot color={CORAL} size={5} />Vancouver<SmallDot color={CORAL} size={5} />Fresh Daily<SmallDot color={CORAL} size={5} /></span>;
             })}
@@ -458,29 +513,43 @@ export default function App() {
       </section>
 
       {/* WORK */}
-      <section id="work" style={{ padding: "100px 40px 90px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 40px 90px", background: WARM_WHITE, position: "relative" }}>
+        <div style={{ maxWidth: 1240, margin: "0 auto", width: "100%" }}>
           <FadeUp>
-            <div style={{ textAlign: "center", marginBottom: 56 }}>
+            <div style={{ textAlign: "center", marginBottom: 32 }}>
               <SectionLabel text="Our Content" color={CORAL} center />
               <div className="display" style={{ fontSize: "clamp(36px,5vw,68px)", color: BLUE, marginBottom: 12, textTransform: "uppercase" }}>
-                What We <span style={{ fontStyle: "italic", color: CORAL, fontFamily: "'Fraunces',serif", fontWeight: 700 }}>Make</span>
+                Tap to <span style={{ fontStyle: "italic", color: CORAL, fontFamily: "'DM Serif Display',serif", fontWeight: 700 }}>Watch</span>
               </div>
-              <div className="script" style={{ fontSize: 28, color: INK + "88", marginTop: 4 }}>
-                fresh content, daily.
+              <div className="script" style={{ fontSize: 26, color: INK + "88", marginTop: 4 }}>
+                filter by what you need.
               </div>
             </div>
           </FadeUp>
 
-          <div className="fc" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 20 }}>
-            {VIDS.map(function(v, i) { return <VideoCard key={v.num} num={v.num} label={v.label} sub={v.sub} color={v.color} desc={v.desc} idx={i} />; })}
+          {/* Filter tabs */}
+          <FadeUp delay={0.08}>
+            <div style={{ display: "flex", justifyContent: "center", gap: 8, flexWrap: "wrap", marginBottom: 36 }}>
+              {VID_TYPES.map(function(t) {
+                return (
+                  <button key={t} className="ctab" onClick={function() { setFilter(t); }}
+                    style={{ background: filter === t ? BLUE : "transparent", color: filter === t ? WARM_WHITE : BLUE, borderColor: BLUE, fontSize: 11 }}>
+                    {t}
+                  </button>
+                );
+              })}
+            </div>
+          </FadeUp>
+
+          <div className="fc" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
+            {shownVids.map(function(v, i) { return <VideoCard key={v.num} num={v.num} label={v.label} sub={v.sub} type={v.type} color={v.color} desc={v.desc} idx={i} onOpen={setOpenVid} />; })}
           </div>
 
           {/* Bottom CTA strip */}
           <FadeUp delay={0.3}>
             <div style={{ marginTop: 56, padding: "36px 44px", background: BLUE, borderRadius: 4, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24, position: "relative", overflow: "hidden" }}>
               <div>
-                <div style={{ fontFamily: "'Fraunces',serif", fontSize: 28, fontWeight: 900, color: WARM_WHITE, marginBottom: 6, letterSpacing: "-0.01em" }}>
+                <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 28, fontWeight: 900, color: WARM_WHITE, marginBottom: 6, letterSpacing: "-0.01em" }}>
                   Want specific samples?
                 </div>
                 <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: WARM_WHITE + "aa" }}>
@@ -506,15 +575,15 @@ export default function App() {
       <WavyDivider color={YELLOW} />
 
       {/* ABOUT */}
-      <section id="about" style={{ padding: "90px 40px 100px", background: YELLOW, position: "relative" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px 40px 100px", background: YELLOW, position: "relative" }}>
+        <div style={{ maxWidth: 1240, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="The Studio" color={CORAL} center />
               <div className="display" style={{ fontSize: "clamp(36px,5.5vw,76px)", color: BLUE, textTransform: "uppercase" }}>
                 Two People<span style={{ color: CORAL }}>.</span>
               </div>
-              <div className="display" style={{ fontSize: "clamp(36px,5.5vw,76px)", color: BLUE, textTransform: "uppercase", fontStyle: "italic", fontWeight: 400, fontFamily: "'Fraunces',serif" }}>
+              <div className="display" style={{ fontSize: "clamp(36px,5.5vw,76px)", color: BLUE, textTransform: "uppercase", fontStyle: "italic", fontWeight: 400, fontFamily: "'DM Serif Display',serif" }}>
                 One <span style={{ color: CORAL }}>Vision</span>.
               </div>
             </div>
@@ -552,13 +621,13 @@ export default function App() {
                   <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.04) 2px, rgba(255,255,255,0.04) 3px)", pointerEvents: "none" }} />
 
                   <div style={{
-                    fontFamily: "'Fraunces',serif", fontStyle: "italic",
+                    fontFamily: "'DM Serif Display',serif", fontStyle: "italic",
                     fontSize: 14, color: YELLOW, letterSpacing: "0.08em",
                     marginBottom: 16, fontWeight: 700, position: "relative", zIndex: 1,
                   }}>@builtbyae.fit</div>
 
                   <div style={{ width: "100%", aspectRatio: "3/4", background: WARM_WHITE + "1a", borderRadius: 3, border: "2px dashed " + WARM_WHITE + "44", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginBottom: 22, position: "relative", zIndex: 1 }}>
-                    <div style={{ fontFamily: "'Fraunces',serif", fontSize: 56, fontStyle: "italic", color: WARM_WHITE + "44", fontWeight: 900 }}>{cr.initial}</div>
+                    <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 56, fontStyle: "italic", color: WARM_WHITE + "44", fontWeight: 900 }}>{cr.initial}</div>
                     <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: WARM_WHITE + "88", letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 6 }}>Add Photo</div>
                   </div>
 
@@ -581,40 +650,26 @@ export default function App() {
                   <SectionLabel text="About the Creator" color={cr.color} />
 
                   <div className="display" style={{ fontSize: 42, color: BLUE, marginBottom: 16, textTransform: "uppercase" }}>
-                    {cr.name === "Together" ? "BUILT" : "THE"} <span style={{ fontStyle: "italic", fontFamily: "'Fraunces',serif", fontWeight: 700, color: cr.color }}>
+                    {cr.name === "Together" ? "BUILT" : "THE"} <span style={{ fontStyle: "italic", fontFamily: "'DM Serif Display',serif", fontWeight: 700, color: cr.color }}>
                       {cr.name === "Together" ? "by AE" : cr.role.toLowerCase()}
                     </span>
                   </div>
 
                   <p style={{
-                    fontFamily: "'Fraunces',serif", fontSize: 17,
+                    fontFamily: "'DM Serif Display',serif", fontSize: 17,
                     color: INK + "cc", lineHeight: 1.85,
-                    marginBottom: 32, fontStyle: "italic",
+                    marginBottom: 24, fontStyle: "italic",
                   }}>{cr.bio}</p>
 
-                  {/* Skills */}
-                  <div style={{ marginBottom: 28 }}>
-                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 800, letterSpacing: "0.18em", color: CORAL, textTransform: "uppercase", marginBottom: 14 }}>Skills</div>
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
-                      {cr.skills.map(function(s) {
-                        return (
-                          <div key={s} style={{ display: "flex", alignItems: "center", gap: 8, padding: "9px 12px", border: "1.5px solid " + cr.color + "33", borderRadius: 3, background: cr.color + "0a" }}>
-                            <EyeDot color={cr.color} size={12} />
-                            <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, fontWeight: 600, color: BLUE }}>{s}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Why it matters */}
-                  <div style={{ padding: "18px 22px", background: cr.color, borderRadius: 4 }}>
-                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 800, letterSpacing: "0.15em", color: YELLOW, textTransform: "uppercase", marginBottom: 10 }}>Why This Matters</div>
-                    <p style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13.5, color: WARM_WHITE, lineHeight: 1.75 }}>
-                      {activeCreator === "aaron" && "Credentialed expertise means content brands can stand behind. Aaron's nutrition and optician background opens doors across a wider category than any lifestyle creator alone."}
-                      {activeCreator === "ellen" && "A designer directing the shoot means every frame looks intentional. No bad angles, no bad light - content that arrives looking like a brand asset."}
-                      {activeCreator === "both" && "A credentialed expert and trained designer in real life together. That combination is nearly impossible to manufacture - and audiences feel the difference instantly."}
-                    </p>
+                  {/* Skills - condensed inline */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {cr.skills.map(function(s) {
+                      return (
+                        <span key={s} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", border: "1.5px solid " + cr.color + "33", borderRadius: 100, background: cr.color + "0a", fontFamily: "'DM Sans',sans-serif", fontSize: 12, fontWeight: 600, color: BLUE }}>
+                          <SmallDot color={cr.color} size={5} />{s}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -626,13 +681,13 @@ export default function App() {
       <WavyDivider color={YELLOW} flip />
 
       {/* SERVICES - Peixou price list style */}
-      <section id="services" style={{ padding: "100px 40px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 40px", background: WARM_WHITE, position: "relative" }}>
+        <div style={{ maxWidth: 1240, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="Services" color={CORAL} center />
               <div className="display" style={{ fontSize: "clamp(36px,5vw,68px)", color: BLUE, marginBottom: 8, textTransform: "uppercase" }}>
-                Menu of <span style={{ fontStyle: "italic", color: CORAL, fontFamily: "'Fraunces',serif", fontWeight: 700 }}>Services</span>
+                Menu of <span style={{ fontStyle: "italic", color: CORAL, fontFamily: "'DM Serif Display',serif", fontWeight: 700 }}>Services</span>
               </div>
               <div className="script" style={{ fontSize: 26, color: INK + "88" }}>
                 pricing by inquiry.
@@ -651,7 +706,7 @@ export default function App() {
                     <div className="display" style={{ fontSize: "clamp(28px,3.5vw,44px)", color: BLUE, marginBottom: 8, textTransform: "uppercase" }}>
                       Monthly<br/>Retainer
                     </div>
-                    <div style={{ fontFamily: "'Fraunces',serif", fontSize: 84, fontWeight: 900, color: CORAL, lineHeight: 0.9, letterSpacing: "-0.04em", marginBottom: 4 }}>
+                    <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 84, fontWeight: 900, color: CORAL, lineHeight: 0.9, letterSpacing: "-0.04em", marginBottom: 4 }}>
                       4<span style={{ fontSize: 38 }}>+</span>
                     </div>
                     <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: BLUE, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 700, marginBottom: 16 }}>
@@ -676,14 +731,14 @@ export default function App() {
                             <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, marginBottom: 3 }}>
                               {String(i + 1).padStart(2, "0")} - {s.c === BLUE ? "Solo" : s.c === CORAL ? "Variety" : s.c === YELLOW ? "Ongoing" : "Campaign"}
                             </div>
-                            <div style={{ fontFamily: "'Fraunces',serif", fontSize: 24, fontWeight: 900, color: BLUE, letterSpacing: "0.01em", marginBottom: 4, textTransform: "uppercase" }}>
+                            <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, fontWeight: 900, color: BLUE, letterSpacing: "0.01em", marginBottom: 4, textTransform: "uppercase" }}>
                               {s.n}
                             </div>
                             <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: BLUE + "aa", lineHeight: 1.5 }}>
                               {s.d}
                             </div>
                           </div>
-                          <div style={{ fontFamily: "'Fraunces',serif", fontSize: 20, fontWeight: 700, color: BLUE, whiteSpace: "nowrap", paddingTop: 12 }}>
+                          <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, fontWeight: 700, color: BLUE, whiteSpace: "nowrap", paddingTop: 12 }}>
                             {s.price}
                           </div>
                         </div>
@@ -706,7 +761,7 @@ export default function App() {
                     <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 800, color: s.c, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 8 }}>
                       Includes
                     </div>
-                    <div style={{ fontFamily: "'Fraunces',serif", fontSize: 20, fontWeight: 900, color: BLUE, marginBottom: 14, textTransform: "uppercase" }}>
+                    <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, fontWeight: 900, color: BLUE, marginBottom: 14, textTransform: "uppercase" }}>
                       {s.n}
                     </div>
                     <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 7 }}>
@@ -742,7 +797,7 @@ export default function App() {
         </div>
       </section>
 
-      <WavyDivider color={BLUE} />
+      <TornDivider topColor={WARM_WHITE} bottomColor={BLUE} />
 
       {/* CONTACT */}
       <section id="contact" style={{ padding: "90px 40px 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
@@ -751,20 +806,20 @@ export default function App() {
             <FadeUp>
               <SectionLabel text="Contact" color={YELLOW} />
               <div className="display" style={{ fontSize: "clamp(36px,5vw,68px)", color: WARM_WHITE, marginBottom: 8, textTransform: "uppercase" }}>
-                Let's <span style={{ fontStyle: "italic", color: YELLOW, fontFamily: "'Fraunces',serif", fontWeight: 700 }}>build</span>
+                Let's <span style={{ fontStyle: "italic", color: YELLOW, fontFamily: "'DM Serif Display',serif", fontWeight: 700 }}>build</span>
               </div>
               <div className="display" style={{ fontSize: "clamp(36px,5vw,68px)", color: WARM_WHITE, marginBottom: 20, textTransform: "uppercase" }}>
                 something <span style={{ color: YELLOW }}>real.</span>
               </div>
-              <p style={{ fontFamily: "'Fraunces',serif", fontSize: 17, color: WARM_WHITE + "cc", lineHeight: 1.9, marginBottom: 36, fontStyle: "italic", maxWidth: 420 }}>
+              <p style={{ fontFamily: "'DM Serif Display',serif", fontSize: 17, color: WARM_WHITE + "cc", lineHeight: 1.9, marginBottom: 36, fontStyle: "italic", maxWidth: 420 }}>
                 Tell us about your brand. We respond within 24 hours with a tailored approach and samples matched to your product.
               </p>
 
               <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
                 {[
                   { l: "Email", v: "builtbyae.fit@gmail.com", c: YELLOW },
-                  { l: "TikTok", v: "@BuiltByAE.fit", c: CORAL },
-                  { l: "Instagram", v: "@BuiltByAE.fit", c: YELLOW },
+                  { l: "TikTok", v: "@builtbyae.fit", c: CORAL },
+                  { l: "Instagram", v: "@builtbyae.fit", c: YELLOW },
                 ].map(function(item) {
                   return (
                     <div key={item.l} style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 18px", borderRadius: 3, background: "rgba(255,255,255,0.08)", border: "1px solid " + WARM_WHITE + "22" }}>
@@ -788,7 +843,7 @@ export default function App() {
                 <div style={{ background: WARM_WHITE, borderRadius: 4, padding: "44px 40px", color: INK }}>
                   <SectionLabel text="Inquiry Form" color={CORAL} />
                   <div className="display" style={{ fontSize: 32, color: BLUE, marginBottom: 28, textTransform: "uppercase" }}>
-                    Start a <span style={{ color: CORAL, fontStyle: "italic", fontFamily: "'Fraunces',serif", fontWeight: 700 }}>conversation</span>
+                    Start a <span style={{ color: CORAL, fontStyle: "italic", fontFamily: "'DM Serif Display',serif", fontWeight: 700 }}>conversation</span>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                     <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
@@ -834,9 +889,9 @@ export default function App() {
                     thank you!
                   </div>
                   <div className="display" style={{ fontSize: 32, color: BLUE, marginBottom: 14, textTransform: "uppercase" }}>
-                    Got it, <span style={{ fontStyle: "italic", color: CORAL, fontFamily: "'Fraunces',serif", fontWeight: 700 }}>{form.name}</span>
+                    Got it, <span style={{ fontStyle: "italic", color: CORAL, fontFamily: "'DM Serif Display',serif", fontWeight: 700 }}>{form.name}</span>
                   </div>
-                  <p style={{ fontFamily: "'Fraunces',serif", fontSize: 15, color: BLUE + "cc", lineHeight: 1.8, fontStyle: "italic", maxWidth: 380, margin: "0 auto" }}>
+                  <p style={{ fontFamily: "'DM Serif Display',serif", fontSize: 15, color: BLUE + "cc", lineHeight: 1.8, fontStyle: "italic", maxWidth: 380, margin: "0 auto" }}>
                     We'll be in touch within 24 hours with a tailored response and content samples matched to your brand.
                   </p>
                 </div>
@@ -852,7 +907,7 @@ export default function App() {
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <LogoMark size={42} color={YELLOW} />
             <div>
-              <div style={{ fontFamily: "'Fraunces',serif", fontSize: 22, fontWeight: 900, color: WARM_WHITE, letterSpacing: "-0.02em" }}>BuiltByAE</div>
+              <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 22, fontWeight: 900, color: WARM_WHITE, letterSpacing: "-0.02em" }}>BuiltByAE</div>
               <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: YELLOW, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: -1 }}>Made in Vancouver</div>
             </div>
           </div>
@@ -872,6 +927,8 @@ export default function App() {
           <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: WARM_WHITE + "55", letterSpacing: "0.16em", textTransform: "uppercase" }}>Fitness - Nutrition - Eyewear - Lifestyle</div>
         </div>
       </footer>
+
+      <VideoModal vid={openVid} onClose={function() { setOpenVid(null); }} />
     </div>
   );
 }
