@@ -363,7 +363,7 @@ export default function App() {
         borderBottom: scrolled ? "1px solid " + INK + "12" : "none",
         transition: "all 0.35s", padding: "0 40px",
       }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           <div onClick={function() { go("hero"); }} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
             <LogoMark size={38} color={BLUE} />
             <div>
@@ -396,7 +396,7 @@ export default function App() {
         {/* paper texture overlay */}
         <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26,26,26,0.012) 2px, rgba(26,26,26,0.012) 3px)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: 1240, margin: "0 auto", position: "relative" }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto", position: "relative" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 56, alignItems: "center" }}>
             {/* LEFT - text */}
             <div>
@@ -516,7 +516,7 @@ export default function App() {
 
       {/* WORK */}
       <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 40px 90px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", width: "100%" }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <SectionLabel text="Our Content" color={CORAL} center />
@@ -578,7 +578,7 @@ export default function App() {
 
       {/* ABOUT */}
       <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px 40px 100px", background: YELLOW, position: "relative" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", width: "100%" }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="The Studio" color={CORAL} center />
@@ -684,7 +684,7 @@ export default function App() {
 
       {/* SERVICES - Peixou price list style */}
       <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 40px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", width: "100%" }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="Services" color={CORAL} center />
@@ -803,7 +803,7 @@ export default function App() {
 
       {/* CONTACT */}
       <section id="contact" style={{ padding: "90px 40px 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "flex-start" }}>
             <FadeUp>
               <SectionLabel text="Contact" color={YELLOW} />
@@ -905,7 +905,7 @@ export default function App() {
 
       {/* FOOTER */}
       <footer style={{ background: DEEP_BLUE, padding: "48px 40px", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
-        <div style={{ maxWidth: 1240, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+        <div style={{ maxWidth: 1600, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <LogoMark size={42} color={YELLOW} />
             <div>
@@ -924,7 +924,7 @@ export default function App() {
             })}
           </div>
         </div>
-        <div style={{ maxWidth: 1240, margin: "24px auto 0", paddingTop: 24, borderTop: "1px solid " + WARM_WHITE + "18", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div style={{ maxWidth: 1600, margin: "24px auto 0", paddingTop: 24, borderTop: "1px solid " + WARM_WHITE + "18", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: WARM_WHITE + "55" }}>(c) 2026 BuiltByAE - Vancouver, BC</div>
           <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: WARM_WHITE + "55", letterSpacing: "0.16em", textTransform: "uppercase" }}>Fitness - Nutrition - Eyewear - Lifestyle</div>
         </div>
