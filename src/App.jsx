@@ -295,14 +295,16 @@ export default function App() {
   var cr = CREATORS[activeCreator];
 
   var VIDS = [
-    { num: "01", label: "Testimonial", sub: "Review Style", type: "Testimonial", color: BLUE, desc: "Credible, trust-building reviews grounded in real expertise.", src: "/videos/video1.mp4" },
-    { num: "02", label: "Unboxing", sub: "First Impression", type: "Unboxing", color: CORAL, desc: "Real reactions, beautiful framing. The moment of discovery.", src: "/videos/video2.mp4" },
-    { num: "03", label: "Lifestyle", sub: "Integration", type: "Lifestyle", color: YELLOW, desc: "Your product inside our real Vancouver life. Nothing staged.", src: "/videos/video3.mp4" },
-    { num: "04", label: "Educational", sub: "Expert Explainer", type: "Educational", color: DEEP_BLUE, desc: "Optician and nutrition background turned into expert content.", src: "/videos/video4.mp4" },
-    { num: "05", label: "Testimonial", sub: "Review Style", type: "Testimonial", color: BLUE, desc: "An honest, results-driven review that brands can stand behind.", src: "/videos/video5.mp4" },
-    { num: "06", label: "Lifestyle", sub: "Integration", type: "Lifestyle", color: CORAL, desc: "Gym-day integration that feels native to the feed.", src: "/videos/video6.mp4" },
+    { num: "01", label: "Work hard, sleep harder", sub: "Testimonial", type: "Testimonial", color: BLUE, desc: "A weighted, cooling blanket that actually changed how the night feels.", src: "/videos/video1.mp4" },
+    { num: "02", label: "Chill morning coffee", sub: "Lifestyle", type: "Lifestyle", color: CORAL, desc: "Slow, warm, and easy — coffee the way mornings should start.", src: "/videos/video2.mp4" },
+    { num: "03", label: "ASMR sound check", sub: "Lifestyle", type: "Lifestyle", color: YELLOW, desc: "Crisp, satisfying sound, no talking — just the vibe.", src: "/videos/video3.mp4" },
+    { num: "04", label: "Coffee, start to finish", sub: "Lifestyle", type: "Lifestyle", color: DEEP_BLUE, desc: "Grab the pod, the cup, the brew, the first sip — the whole little ritual.", src: "/videos/video4.mp4" },
+    { num: "05", label: "The picky-pillow test", sub: "Testimonial", type: "Testimonial", color: BLUE, desc: "Adjustable down to the exact height and firmness — even for the fussiest sleeper.", src: "/videos/video5.mp4" },
+    { num: "06", label: "Fresh out the box", sub: "Unboxing", type: "Unboxing", color: CORAL, desc: "First look, real reactions, beautifully framed.", src: "/videos/video6.mp4" },
+    { num: "07", label: "Cooler nights, deeper sleep", sub: "Testimonial", type: "Testimonial", color: DEEP_BLUE, desc: "Same honest sleep story, told through a different edit.", src: "/videos/video7.mp4" },
+    { num: "08", label: "Breathing easier", sub: "Testimonial", type: "Testimonial", color: BLUE, desc: "An asthma sufferer's take on what cleaner air actually feels like.", src: "/videos/video8.mp4" },
   ];
-  var VID_TYPES = ["All", "Testimonial", "Unboxing", "Lifestyle", "Educational"];
+  var VID_TYPES = ["All", "Testimonial", "Lifestyle", "Unboxing"];
   var shownVids = filter === "All" ? VIDS : VIDS.filter(function(v) { return v.type === filter; });
 
   var SVCS = [
