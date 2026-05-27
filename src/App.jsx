@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 
 const YELLOW = "#F2D976";
@@ -934,3 +933,4 @@ export default function App() {
     </div>
   );
 }
+
