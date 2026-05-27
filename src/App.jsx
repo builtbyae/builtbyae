@@ -145,24 +145,24 @@ function SmallDot(props) {
 function VideoCard(props) {
   var num = props.num; var label = props.label; var sub = props.sub;
   var color = props.color; var desc = props.desc; var idx = props.idx;
-  var onOpen = props.onOpen;
+  var src = props.src;
   var h = useState(false); var hov = h[0]; var setHov = h[1];
+  var p = useState(false); var playing = p[0]; var setPlaying = p[1];
 
   return (
     <FadeUp delay={idx * 0.1}>
       <div
-        onClick={function() { if (onOpen) onOpen(props); }}
         onMouseEnter={function() { setHov(true); }}
         onMouseLeave={function() { setHov(false); }}
         style={{
           background: WARM_WHITE,
-          border: "2px solid " + (hov ? color : INK + "12"),
+          border: "2px solid " + (hov || playing ? color : INK + "12"),
           borderRadius: 4,
           overflow: "hidden",
-          cursor: "pointer",
+          cursor: playing ? "default" : "pointer",
           transition: "all 0.3s ease",
-          transform: hov ? "translateY(-6px)" : "none",
-          boxShadow: hov ? "0 18px 40px " + color + "33" : "0 2px 12px rgba(26,26,26,0.05)",
+          transform: (hov && !playing) ? "translateY(-6px)" : "none",
+          boxShadow: (hov || playing) ? "0 18px 40px " + color + "33" : "0 2px 12px rgba(26,26,26,0.05)",
         }}>
         {/* Ribbon header */}
         <div style={{ background: color, padding: "10px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
@@ -175,32 +175,47 @@ function VideoCard(props) {
             color: WARM_WHITE, fontStyle: "italic", lineHeight: 1,
           }}>{num}</span>
         </div>
-        {/* Video preview */}
-        <div style={{
-          margin: "16px 18px 0", aspectRatio: "9/16",
-          background: hov ? color + "20" : color + "0e",
-          border: "1.5px solid " + color + "33",
-          borderRadius: 3,
-          display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
-          position: "relative", transition: "all 0.3s",
-        }}>
-          <div style={{
-            width: 54, height: 54, borderRadius: "50%", background: hov ? color : WARM_WHITE,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "0 6px 20px " + color + "55", transition: "all 0.3s",
+        {/* Video preview / inline player */}
+        <div
+          onClick={function() { if (src && !playing) setPlaying(true); }}
+          style={{
+            margin: "16px 18px 0", aspectRatio: "9/16",
+            background: playing ? "#000" : (hov ? color + "20" : color + "0e"),
+            border: "1.5px solid " + color + "33",
+            borderRadius: 3, overflow: "hidden",
+            display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
+            position: "relative", transition: "all 0.3s",
+            cursor: playing ? "default" : "pointer",
           }}>
-            <div style={{
-              width: 0, height: 0,
-              borderTop: "9px solid transparent", borderBottom: "9px solid transparent",
-              borderLeft: "15px solid " + (hov ? WARM_WHITE : color), marginLeft: 4, transition: "all 0.3s",
-            }} />
-          </div>
-          <div style={{
-            position: "absolute", bottom: 12,
-            fontFamily: "'DM Sans', sans-serif", fontSize: 14,
-            fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase",
-            color: WARM_WHITE, background: color, padding: "5px 14px", borderRadius: 100,
-          }}>&#9654; Watch</div>
+          {playing && src ? (
+            <video
+              src={src}
+              controls
+              autoPlay
+              playsInline
+              style={{ width: "100%", height: "100%", objectFit: "contain", background: "#000" }}
+            />
+          ) : (
+            <React.Fragment>
+              <div style={{
+                width: 54, height: 54, borderRadius: "50%", background: hov ? color : WARM_WHITE,
+                display: "flex", alignItems: "center", justifyContent: "center",
+                boxShadow: "0 6px 20px " + color + "55", transition: "all 0.3s",
+              }}>
+                <div style={{
+                  width: 0, height: 0,
+                  borderTop: "9px solid transparent", borderBottom: "9px solid transparent",
+                  borderLeft: "15px solid " + (hov ? WARM_WHITE : color), marginLeft: 4, transition: "all 0.3s",
+                }} />
+              </div>
+              <div style={{
+                position: "absolute", bottom: 12,
+                fontFamily: "'DM Sans', sans-serif", fontSize: 14,
+                fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase",
+                color: WARM_WHITE, background: color, padding: "5px 14px", borderRadius: 100,
+              }}>&#9654; Watch</div>
+            </React.Fragment>
+          )}
         </div>
         <div style={{ padding: "18px 20px 22px" }}>
           <div style={{
@@ -360,9 +375,9 @@ export default function App() {
         background: scrolled ? "rgba(250,246,236,0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid " + INK + "12" : "none",
-        transition: "all 0.35s", padding: "0 clamp(24px,8vw,120px)",
+        transition: "all 0.35s", padding: "0 clamp(22px,6vw,96px)",
       }}>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+        <div style={{ width: "100%", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           <div onClick={function() { go("hero"); }} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
             <LogoMark size={38} color={BLUE} />
             <div>
@@ -391,11 +406,11 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section id="hero" style={{ minHeight: "100vh", padding: "120px clamp(24px,8vw,120px) 80px", position: "relative", overflow: "hidden", background: WARM_WHITE }}>
+      <section id="hero" style={{ minHeight: "100vh", padding: "120px clamp(22px,6vw,96px) 80px", position: "relative", overflow: "hidden", background: WARM_WHITE }}>
         {/* paper texture overlay */}
         <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26,26,26,0.012) 2px, rgba(26,26,26,0.012) 3px)", pointerEvents: "none" }} />
 
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", position: "relative" }}>
+        <div style={{ width: "100%", margin: "0 auto", position: "relative" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 56, alignItems: "center" }}>
             {/* LEFT - text */}
             <div>
@@ -514,8 +529,8 @@ export default function App() {
       </section>
 
       {/* WORK */}
-      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(24px,8vw,120px) 90px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", width: "100%" }}>
+      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(22px,6vw,96px) 90px", background: WARM_WHITE, position: "relative" }}>
+        <div style={{ width: "100%", margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <SectionLabel text="Our Content" color={CORAL} center />
@@ -576,8 +591,8 @@ export default function App() {
       <WavyDivider color={YELLOW} />
 
       {/* ABOUT */}
-      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px clamp(24px,8vw,120px) 100px", background: YELLOW, position: "relative" }}>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", width: "100%" }}>
+      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px clamp(22px,6vw,96px) 100px", background: YELLOW, position: "relative" }}>
+        <div style={{ width: "100%", margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="The Studio" color={CORAL} center />
@@ -682,8 +697,8 @@ export default function App() {
       <WavyDivider color={YELLOW} flip />
 
       {/* SERVICES - Peixou price list style */}
-      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(24px,8vw,120px)", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", width: "100%" }}>
+      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(22px,6vw,96px)", background: WARM_WHITE, position: "relative" }}>
+        <div style={{ width: "100%", margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="Services" color={CORAL} center />
@@ -801,8 +816,8 @@ export default function App() {
       <TornDivider topColor={WARM_WHITE} bottomColor={BLUE} />
 
       {/* CONTACT */}
-      <section id="contact" style={{ padding: "90px clamp(24px,8vw,120px) 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto" }}>
+      <section id="contact" style={{ padding: "90px clamp(22px,6vw,96px) 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
+        <div style={{ width: "100%", margin: "0 auto" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "flex-start" }}>
             <FadeUp>
               <SectionLabel text="Contact" color={YELLOW} />
@@ -903,8 +918,8 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: DEEP_BLUE, padding: "48px clamp(24px,8vw,120px)", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+      <footer style={{ background: DEEP_BLUE, padding: "48px clamp(22px,6vw,96px)", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+        <div style={{ width: "100%", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <LogoMark size={42} color={YELLOW} />
             <div>
@@ -923,7 +938,7 @@ export default function App() {
             })}
           </div>
         </div>
-        <div style={{ width: "100%", maxWidth: 1680, margin: "24px auto 0", paddingTop: 24, borderTop: "1px solid " + WARM_WHITE + "18", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+        <div style={{ width: "100%", margin: "24px auto 0", paddingTop: 24, borderTop: "1px solid " + WARM_WHITE + "18", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: WARM_WHITE + "55" }}>(c) 2026 BuiltByAE - Vancouver, BC</div>
           <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: WARM_WHITE + "55", letterSpacing: "0.16em", textTransform: "uppercase" }}>Fitness - Nutrition - Eyewear - Lifestyle</div>
         </div>
