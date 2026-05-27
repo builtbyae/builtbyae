@@ -82,7 +82,7 @@ function SectionLabel(props) {
     <div style={{ display: "flex", alignItems: "center", gap: 12, justifyContent: center ? "center" : "flex-start", marginBottom: 16 }}>
       <span style={{ display: "block", width: center ? 32 : 0, height: 1.5, background: color, opacity: center ? 1 : 0 }} />
       <span style={{
-        fontFamily: "'DM Sans', sans-serif", fontSize: 12, fontWeight: 700,
+        fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 700,
         letterSpacing: "0.22em", textTransform: "uppercase", color: color,
       }}>{text}</span>
       <span style={{ display: "block", width: 32, height: 1.5, background: color }} />
@@ -167,7 +167,7 @@ function VideoCard(props) {
         {/* Ribbon header */}
         <div style={{ background: color, padding: "10px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: 10, fontWeight: 800,
+            fontFamily: "'DM Sans', sans-serif", fontSize: 12.5, fontWeight: 800,
             letterSpacing: "0.18em", textTransform: "uppercase", color: WARM_WHITE,
           }}>{sub}</span>
           <span style={{
@@ -197,7 +197,7 @@ function VideoCard(props) {
           </div>
           <div style={{
             position: "absolute", bottom: 12,
-            fontFamily: "'DM Sans', sans-serif", fontSize: 9.5,
+            fontFamily: "'DM Sans', sans-serif", fontSize: 14,
             fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase",
             color: WARM_WHITE, background: color, padding: "5px 14px", borderRadius: 100,
           }}>&#9654; Watch</div>
@@ -209,7 +209,7 @@ function VideoCard(props) {
             letterSpacing: "-0.01em", textTransform: "uppercase",
           }}>{label}</div>
           <div style={{
-            fontFamily: "'DM Sans', sans-serif", fontSize: 12.5, color: INK + "aa",
+            fontFamily: "'DM Sans', sans-serif", fontSize: 14.5, color: INK + "aa",
             lineHeight: 1.75,
           }}>{desc}</div>
         </div>
@@ -239,7 +239,7 @@ function VideoModal(props) {
               <div style={{ width: 60, height: 60, borderRadius: "50%", background: vid.color, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <div style={{ width: 0, height: 0, borderTop: "10px solid transparent", borderBottom: "10px solid transparent", borderLeft: "17px solid " + WARM_WHITE, marginLeft: 4 }} />
               </div>
-              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: WARM_WHITE + "99", textAlign: "center", padding: "0 24px", lineHeight: 1.7 }}>
+              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, letterSpacing: "0.16em", textTransform: "uppercase", color: WARM_WHITE + "99", textAlign: "center", padding: "0 24px", lineHeight: 1.7 }}>
                 {vid.label} - {vid.sub}<br />video drops in here
               </div>
             </React.Fragment>
@@ -360,21 +360,21 @@ export default function App() {
         background: scrolled ? "rgba(250,246,236,0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid " + INK + "12" : "none",
-        transition: "all 0.35s", padding: "0 28px",
+        transition: "all 0.35s", padding: "0 clamp(24px,8vw,120px)",
       }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           <div onClick={function() { go("hero"); }} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
             <LogoMark size={38} color={BLUE} />
             <div>
               <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, fontWeight: 900, color: BLUE, letterSpacing: "-0.02em" }}>BuiltByAE</div>
-              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 9, color: CORAL, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: -1 }}>Made in Vancouver</div>
+              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: CORAL, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: -1 }}>Made in Vancouver</div>
             </div>
           </div>
           <div className="dn" style={{ display: "flex", alignItems: "center", gap: 36 }}>
             {["Work", "About", "Services", "Contact"].map(function(l) {
               return <button key={l} className="nbtn" onClick={function() { go(l.toLowerCase()); }}>{l}</button>;
             })}
-            <button className="pbtn" onClick={function() { go("contact"); }} style={{ padding: "11px 22px", fontSize: 11 }}>Hire Us</button>
+            <button className="pbtn" onClick={function() { go("contact"); }} style={{ padding: "11px 22px", fontSize: 13 }}>Hire Us</button>
           </div>
           <button className="sm" style={{ display: "none", background: "none", border: "none", cursor: "pointer", flexDirection: "column", gap: 5 }} onClick={function() { setMenuOpen(function(o) { return !o; }); }}>
             {[0,1,2].map(function(i) { return <span key={i} style={{ width: 22, height: 2, background: INK, display: "block", transition: "0.25s", transform: i === 0 && menuOpen ? "rotate(45deg) translate(5px,5px)" : i === 2 && menuOpen ? "rotate(-45deg) translate(5px,-5px)" : "none", opacity: i === 1 && menuOpen ? 0 : 1 }} />; })}
@@ -391,11 +391,11 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section id="hero" style={{ minHeight: "100vh", padding: "120px 28px 80px", position: "relative", overflow: "hidden", background: WARM_WHITE }}>
+      <section id="hero" style={{ minHeight: "100vh", padding: "120px clamp(24px,8vw,120px) 80px", position: "relative", overflow: "hidden", background: WARM_WHITE }}>
         {/* paper texture overlay */}
         <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26,26,26,0.012) 2px, rgba(26,26,26,0.012) 3px)", pointerEvents: "none" }} />
 
-        <div style={{ maxWidth: 1920, margin: "0 auto", position: "relative" }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", position: "relative" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 56, alignItems: "center" }}>
             {/* LEFT - text */}
             <div>
@@ -433,7 +433,7 @@ export default function App() {
                 <button className="obtn" onClick={function() { go("work"); }}>View Our Work</button>
               </div>
 
-              <div className="a5" style={{ display: "flex", alignItems: "center", gap: 16, color: INK + "66", fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", flexWrap: "wrap" }}>
+              <div className="a5" style={{ display: "flex", alignItems: "center", gap: 16, color: INK + "66", fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", flexWrap: "wrap" }}>
                 <span>Nutrition</span><SmallDot color={INK + "44"} size={4} />
                 <span>Fitness</span><SmallDot color={INK + "44"} size={4} />
                 <span>Eyewear</span><SmallDot color={INK + "44"} size={4} />
@@ -460,7 +460,7 @@ export default function App() {
                     <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 80, color: CORAL, fontWeight: 900, lineHeight: 0.9, letterSpacing: "-0.04em" }}>Experts</span>
                   </div>
                   <div style={{
-                    fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: BLUE,
+                    fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: BLUE,
                     letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 700,
                   }}>One Standard</div>
 
@@ -477,7 +477,7 @@ export default function App() {
                           padding: "7px 0",
                           borderBottom: i < 3 ? "1px solid " + BLUE + "22" : "none",
                         }}>
-                          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 700 }}>{row[1]}</span>
+                          <span style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: CORAL, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 700 }}>{row[1]}</span>
                           <span style={{ fontFamily: "'DM Serif Display',serif", fontSize: 19, fontWeight: 900, color: BLUE, letterSpacing: "0.01em", textTransform: "uppercase" }}>{row[0]}</span>
                         </div>
                       );
@@ -514,8 +514,8 @@ export default function App() {
       </section>
 
       {/* WORK */}
-      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 28px 90px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto", width: "100%" }}>
+      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(24px,8vw,120px) 90px", background: WARM_WHITE, position: "relative" }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
               <SectionLabel text="Our Content" color={CORAL} center />
@@ -534,7 +534,7 @@ export default function App() {
               {VID_TYPES.map(function(t) {
                 return (
                   <button key={t} className="ctab" onClick={function() { setFilter(t); }}
-                    style={{ background: filter === t ? BLUE : "transparent", color: filter === t ? WARM_WHITE : BLUE, borderColor: BLUE, fontSize: 11 }}>
+                    style={{ background: filter === t ? BLUE : "transparent", color: filter === t ? WARM_WHITE : BLUE, borderColor: BLUE, fontSize: 13 }}>
                     {t}
                   </button>
                 );
@@ -559,7 +559,7 @@ export default function App() {
               </div>
               <button onClick={function() { go("contact"); }} style={{
                 background: YELLOW, color: BLUE, padding: "14px 30px", borderRadius: 100,
-                fontFamily: "'DM Sans',sans-serif", fontSize: 11, fontWeight: 800,
+                fontFamily: "'DM Sans',sans-serif", fontSize: 13, fontWeight: 800,
                 letterSpacing: "0.12em", textTransform: "uppercase", border: "none", cursor: "pointer",
                 transition: "all 0.25s", flexShrink: 0,
               }}
@@ -576,8 +576,8 @@ export default function App() {
       <WavyDivider color={YELLOW} />
 
       {/* ABOUT */}
-      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px 28px 100px", background: YELLOW, position: "relative" }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto", width: "100%" }}>
+      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px clamp(24px,8vw,120px) 100px", background: YELLOW, position: "relative" }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="The Studio" color={CORAL} center />
@@ -629,7 +629,7 @@ export default function App() {
 
                   <div style={{ width: "100%", aspectRatio: "3/4", background: WARM_WHITE + "1a", borderRadius: 3, border: "2px dashed " + WARM_WHITE + "44", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginBottom: 22, position: "relative", zIndex: 1 }}>
                     <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 56, fontStyle: "italic", color: WARM_WHITE + "44", fontWeight: 900 }}>{cr.initial}</div>
-                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: WARM_WHITE + "88", letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 6 }}>Add Photo</div>
+                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: WARM_WHITE + "88", letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 6 }}>Add Photo</div>
                   </div>
 
                   <div className="display" style={{ fontSize: 38, color: YELLOW, textTransform: "uppercase", textAlign: "center", marginBottom: 8, position: "relative", zIndex: 1 }}>
@@ -641,7 +641,7 @@ export default function App() {
 
                   <div style={{ display: "flex", gap: 6, justifyContent: "center", flexWrap: "wrap", marginBottom: 16, position: "relative", zIndex: 1 }}>
                     {[cr.sub, cr.origin].map(function(t) {
-                      return <span key={t} style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 700, padding: "5px 12px", borderRadius: 100, background: YELLOW, color: BLUE, letterSpacing: "0.06em" }}>{t}</span>;
+                      return <span key={t} style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, fontWeight: 700, padding: "5px 12px", borderRadius: 100, background: YELLOW, color: BLUE, letterSpacing: "0.06em" }}>{t}</span>;
                     })}
                   </div>
                 </div>
@@ -666,7 +666,7 @@ export default function App() {
                   <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                     {cr.skills.map(function(s) {
                       return (
-                        <span key={s} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", border: "1.5px solid " + cr.color + "33", borderRadius: 100, background: cr.color + "0a", fontFamily: "'DM Sans',sans-serif", fontSize: 12, fontWeight: 600, color: BLUE }}>
+                        <span key={s} style={{ display: "inline-flex", alignItems: "center", gap: 7, padding: "8px 14px", border: "1.5px solid " + cr.color + "33", borderRadius: 100, background: cr.color + "0a", fontFamily: "'DM Sans',sans-serif", fontSize: 14, fontWeight: 600, color: BLUE }}>
                           <SmallDot color={cr.color} size={5} />{s}
                         </span>
                       );
@@ -682,8 +682,8 @@ export default function App() {
       <WavyDivider color={YELLOW} flip />
 
       {/* SERVICES - Peixou price list style */}
-      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px 28px", background: WARM_WHITE, position: "relative" }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto", width: "100%" }}>
+      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(24px,8vw,120px)", background: WARM_WHITE, position: "relative" }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
               <SectionLabel text="Services" color={CORAL} center />
@@ -710,7 +710,7 @@ export default function App() {
                     <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 84, fontWeight: 900, color: CORAL, lineHeight: 0.9, letterSpacing: "-0.04em", marginBottom: 4 }}>
                       4<span style={{ fontSize: 38 }}>+</span>
                     </div>
-                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: BLUE, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 700, marginBottom: 16 }}>
+                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: BLUE, letterSpacing: "0.16em", textTransform: "uppercase", fontWeight: 700, marginBottom: 16 }}>
                       videos / month
                     </div>
                     <div className="script" style={{ fontSize: 22, color: CORAL }}>
@@ -729,13 +729,13 @@ export default function App() {
                           display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 16,
                         }}>
                           <div style={{ flex: 1 }}>
-                            <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, marginBottom: 3 }}>
+                            <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, marginBottom: 3 }}>
                               {String(i + 1).padStart(2, "0")} - {s.c === BLUE ? "Solo" : s.c === CORAL ? "Variety" : s.c === YELLOW ? "Ongoing" : "Campaign"}
                             </div>
                             <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 24, fontWeight: 900, color: BLUE, letterSpacing: "0.01em", marginBottom: 4, textTransform: "uppercase" }}>
                               {s.n}
                             </div>
-                            <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: BLUE + "aa", lineHeight: 1.5 }}>
+                            <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: BLUE + "aa", lineHeight: 1.5 }}>
                               {s.d}
                             </div>
                           </div>
@@ -759,7 +759,7 @@ export default function App() {
                   <div key={i} style={{ padding: "26px 22px", background: WARM_WHITE, border: "1.5px solid " + s.c + "33", borderRadius: 3, transition: "transform 0.25s" }}
                     onMouseEnter={function(e) { e.currentTarget.style.transform = "translateY(-4px)"; }}
                     onMouseLeave={function(e) { e.currentTarget.style.transform = "none"; }}>
-                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, fontWeight: 800, color: s.c, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 8 }}>
+                    <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, fontWeight: 800, color: s.c, letterSpacing: "0.16em", textTransform: "uppercase", marginBottom: 8 }}>
                       Includes
                     </div>
                     <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 20, fontWeight: 900, color: BLUE, marginBottom: 14, textTransform: "uppercase" }}>
@@ -768,7 +768,7 @@ export default function App() {
                     <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 7 }}>
                       {s.items.map(function(item) {
                         return (
-                          <li key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'DM Sans',sans-serif", fontSize: 12, color: INK + "cc" }}>
+                          <li key={item} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: INK + "cc" }}>
                             <SmallDot color={s.c} size={5} />
                             {item}
                           </li>
@@ -790,7 +790,7 @@ export default function App() {
               </div>
               <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
                 {BRANDS.map(function(b) {
-                  return <span key={b} style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12, fontWeight: 600, padding: "7px 15px", borderRadius: 100, background: WARM_WHITE + "12", color: WARM_WHITE, border: "1px solid " + WARM_WHITE + "22", letterSpacing: "0.04em" }}>{b}</span>;
+                  return <span key={b} style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, fontWeight: 600, padding: "7px 15px", borderRadius: 100, background: WARM_WHITE + "12", color: WARM_WHITE, border: "1px solid " + WARM_WHITE + "22", letterSpacing: "0.04em" }}>{b}</span>;
                 })}
               </div>
             </div>
@@ -801,8 +801,8 @@ export default function App() {
       <TornDivider topColor={WARM_WHITE} bottomColor={BLUE} />
 
       {/* CONTACT */}
-      <section id="contact" style={{ padding: "90px 28px 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto" }}>
+      <section id="contact" style={{ padding: "90px clamp(24px,8vw,120px) 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "flex-start" }}>
             <FadeUp>
               <SectionLabel text="Contact" color={YELLOW} />
@@ -826,7 +826,7 @@ export default function App() {
                     <div key={item.l} style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 18px", borderRadius: 3, background: "rgba(255,255,255,0.08)", border: "1px solid " + WARM_WHITE + "22" }}>
                       <EyeDot color={item.c} size={18} />
                       <div>
-                        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: WARM_WHITE + "88", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 2 }}>{item.l}</div>
+                        <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: WARM_WHITE + "88", letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: 2 }}>{item.l}</div>
                         <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 14, color: WARM_WHITE, fontWeight: 700 }}>{item.v}</div>
                       </div>
                     </div>
@@ -851,18 +851,18 @@ export default function App() {
                       {[{ k: "name", l: "Your Name", p: "Jane Smith" }, { k: "brand", l: "Brand Name", p: "Your Brand" }].map(function(f) {
                         return (
                           <div key={f.k}>
-                            <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>{f.l}</label>
+                            <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>{f.l}</label>
                             <input className="inp" placeholder={f.p} value={form[f.k]} onChange={function(e) { var v = e.target.value; setForm(function(fd) { var n = Object.assign({}, fd); n[f.k] = v; return n; }); }} />
                           </div>
                         );
                       })}
                     </div>
                     <div>
-                      <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>Email</label>
+                      <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>Email</label>
                       <input className="inp" type="email" placeholder="hello@brand.com" value={form.email} onChange={function(e) { var v = e.target.value; setForm(function(fd) { return Object.assign({}, fd, { email: v }); }); }} />
                     </div>
                     <div>
-                      <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>Content Type</label>
+                      <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>Content Type</label>
                       <select className="inp" value={form.type} onChange={function(e) { var v = e.target.value; setForm(function(fd) { return Object.assign({}, fd, { type: v }); }); }} style={{ appearance: "none", cursor: "pointer" }}>
                         <option value="">Select a format</option>
                         <option>Testimonial / Review</option>
@@ -875,7 +875,7 @@ export default function App() {
                       </select>
                     </div>
                     <div>
-                      <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>About your brand</label>
+                      <label style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: CORAL, letterSpacing: "0.14em", textTransform: "uppercase", fontWeight: 700, display: "block", marginBottom: 7 }}>About your brand</label>
                       <textarea className="inp" rows={4} placeholder="What does your brand do? What are you trying to achieve?" value={form.msg} onChange={function(e) { var v = e.target.value; setForm(function(fd) { return Object.assign({}, fd, { msg: v }); }); }} style={{ resize: "vertical", minHeight: 100 }} />
                     </div>
                     <button className="pbtn" style={{ width: "100%", justifyContent: "center", marginTop: 4 }}
@@ -903,13 +903,13 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: DEEP_BLUE, padding: "48px 28px", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
-        <div style={{ maxWidth: 1920, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+      <footer style={{ background: DEEP_BLUE, padding: "48px clamp(24px,8vw,120px)", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <LogoMark size={42} color={YELLOW} />
             <div>
               <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 22, fontWeight: 900, color: WARM_WHITE, letterSpacing: "-0.02em" }}>BuiltByAE</div>
-              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 10, color: YELLOW, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: -1 }}>Made in Vancouver</div>
+              <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: YELLOW, letterSpacing: "0.18em", textTransform: "uppercase", marginTop: -1 }}>Made in Vancouver</div>
             </div>
           </div>
           <div className="script" style={{ fontSize: 28, color: YELLOW, transform: "rotate(-4deg)" }}>
@@ -917,15 +917,15 @@ export default function App() {
           </div>
           <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
             {["Work", "About", "Services", "Contact"].map(function(l) {
-              return <button key={l} onClick={function() { go(l.toLowerCase()); }} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: WARM_WHITE + "88", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 700, transition: "color 0.2s" }}
+              return <button key={l} onClick={function() { go(l.toLowerCase()); }} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: WARM_WHITE + "88", letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 700, transition: "color 0.2s" }}
                 onMouseEnter={function(e) { e.currentTarget.style.color = YELLOW; }}
                 onMouseLeave={function(e) { e.currentTarget.style.color = WARM_WHITE + "88"; }}>{l}</button>;
             })}
           </div>
         </div>
-        <div style={{ maxWidth: 1920, margin: "24px auto 0", paddingTop: 24, borderTop: "1px solid " + WARM_WHITE + "18", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: WARM_WHITE + "55" }}>(c) 2026 BuiltByAE - Vancouver, BC</div>
-          <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 11, color: WARM_WHITE + "55", letterSpacing: "0.16em", textTransform: "uppercase" }}>Fitness - Nutrition - Eyewear - Lifestyle</div>
+        <div style={{ width: "100%", maxWidth: 1680, margin: "24px auto 0", paddingTop: 24, borderTop: "1px solid " + WARM_WHITE + "18", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+          <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: WARM_WHITE + "55" }}>(c) 2026 BuiltByAE - Vancouver, BC</div>
+          <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 13, color: WARM_WHITE + "55", letterSpacing: "0.16em", textTransform: "uppercase" }}>Fitness - Nutrition - Eyewear - Lifestyle</div>
         </div>
       </footer>
 
@@ -933,4 +933,3 @@ export default function App() {
     </div>
   );
 }
-
