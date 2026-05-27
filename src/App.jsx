@@ -146,6 +146,7 @@ function VideoCard(props) {
   var num = props.num; var label = props.label; var sub = props.sub;
   var color = props.color; var desc = props.desc; var idx = props.idx;
   var src = props.src;
+  var poster = src ? src.replace(/\.mp4$/, ".jpg") : null;
   var h = useState(false); var hov = h[0]; var setHov = h[1];
   var p = useState(false); var playing = p[0]; var setPlaying = p[1];
 
@@ -190,6 +191,7 @@ function VideoCard(props) {
           {playing && src ? (
             <video
               src={src}
+              poster={poster}
               controls
               autoPlay
               playsInline
@@ -197,10 +199,19 @@ function VideoCard(props) {
             />
           ) : (
             <React.Fragment>
+              {poster ? (
+                <img
+                  src={poster}
+                  alt={label}
+                  onError={function(e) { e.currentTarget.style.display = "none"; }}
+                  style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              ) : null}
               <div style={{
                 width: 54, height: 54, borderRadius: "50%", background: hov ? color : WARM_WHITE,
                 display: "flex", alignItems: "center", justifyContent: "center",
                 boxShadow: "0 6px 20px " + color + "55", transition: "all 0.3s",
+                position: "relative", zIndex: 1,
               }}>
                 <div style={{
                   width: 0, height: 0,
@@ -209,7 +220,7 @@ function VideoCard(props) {
                 }} />
               </div>
               <div style={{
-                position: "absolute", bottom: 12,
+                position: "absolute", bottom: 12, zIndex: 1,
                 fontFamily: "'DM Sans', sans-serif", fontSize: 14,
                 fontWeight: 800, letterSpacing: "0.14em", textTransform: "uppercase",
                 color: WARM_WHITE, background: color, padding: "5px 14px", borderRadius: 100,
@@ -285,21 +296,21 @@ export default function App() {
 
   var CREATORS = {
     aaron: {
-      name: "Aaron", initial: "A", color: BLUE,
+      name: "Aaron", initial: "A", color: BLUE, photo: "/images/aaron.jpg",
       role: "Optician + Nutrition", sub: "On-Camera Lead",
       origin: "Chinese-Canadian",
       bio: "Aaron is a licensed optician who also completed nutrition education, and speaks from that nutrition background on camera. He lost 50 lbs and documents his own transformation week by week, no filters - credible for fitness, nutrition, and eyewear brands.",
       skills: ["Nutrition Background", "Licensed Optician", "Body Transformation", "Expert-Led Content"],
     },
     ellen: {
-      name: "Ellen", initial: "E", color: CORAL,
+      name: "Ellen", initial: "E", color: CORAL, photo: "/images/ellen.jpg",
       role: "Creative Director", sub: "On-Camera Talent",
       origin: "Vietnamese-Canadian",
       bio: "Ellen is a graphic designer with a sharp aesthetic eye and natural ease in front of the camera. She directs every shoot - framing, light, color, pacing - and appears on screen for lifestyle, wellness, and feminine brand content. Her Vietnamese-Canadian background opens doors to multicultural campaigns.",
       skills: ["Graphic Design", "Visual Direction", "Lifestyle Content", "Aesthetic Eye"],
     },
     both: {
-      name: "Together", initial: "AE", color: DEEP_BLUE,
+      name: "Together", initial: "AE", color: DEEP_BLUE, photo: "/images/both.jpg",
       role: "Content Studio", sub: "Aaron + Ellen",
       origin: "Vancouver, BC",
       bio: "A licensed optician with a nutrition background and a trained designer, building content from their real life in Vancouver. Their work covers the full wellness spectrum - nutrition, fitness, eyewear, lifestyle - with the visual quality and authentic dynamic that brands spend entire budgets trying to recreate.",
@@ -375,7 +386,7 @@ export default function App() {
         background: scrolled ? "rgba(250,246,236,0.97)" : "transparent",
         backdropFilter: scrolled ? "blur(12px)" : "none",
         borderBottom: scrolled ? "1px solid " + INK + "12" : "none",
-        transition: "all 0.35s", padding: "0 clamp(22px,6vw,96px)",
+        transition: "all 0.35s", padding: "0 clamp(24px,8vw,120px)",
       }}>
         <div style={{ width: "100%", margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "space-between", height: 72 }}>
           <div onClick={function() { go("hero"); }} style={{ cursor: "pointer", display: "flex", alignItems: "center", gap: 10 }}>
@@ -406,9 +417,7 @@ export default function App() {
       </nav>
 
       {/* HERO */}
-      <section id="hero" style={{ minHeight: "100vh", padding: "120px clamp(22px,6vw,96px) 80px", position: "relative", overflow: "hidden", background: WARM_WHITE }}>
-        {/* paper texture overlay */}
-        <div style={{ position: "absolute", inset: 0, background: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(26,26,26,0.012) 2px, rgba(26,26,26,0.012) 3px)", pointerEvents: "none" }} />
+      <section id="hero" style={{ minHeight: "100vh", padding: "120px clamp(24px,8vw,120px) 80px", position: "relative", overflow: "hidden", background: WARM_WHITE }}>
 
         <div style={{ width: "100%", margin: "0 auto", position: "relative" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1.05fr 0.95fr", gap: 56, alignItems: "center" }}>
@@ -529,7 +538,7 @@ export default function App() {
       </section>
 
       {/* WORK */}
-      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(22px,6vw,96px) 90px", background: WARM_WHITE, position: "relative" }}>
+      <section id="work" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(24px,8vw,120px) 90px", background: WARM_WHITE, position: "relative" }}>
         <div style={{ width: "100%", margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 32 }}>
@@ -591,7 +600,7 @@ export default function App() {
       <WavyDivider color={YELLOW} />
 
       {/* ABOUT */}
-      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px clamp(22px,6vw,96px) 100px", background: YELLOW, position: "relative" }}>
+      <section id="about" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "90px clamp(24px,8vw,120px) 100px", background: YELLOW, position: "relative" }}>
         <div style={{ width: "100%", margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -642,9 +651,17 @@ export default function App() {
                     marginBottom: 16, fontWeight: 700, position: "relative", zIndex: 1,
                   }}>@builtbyae.fit</div>
 
-                  <div style={{ width: "100%", aspectRatio: "3/4", background: WARM_WHITE + "1a", borderRadius: 3, border: "2px dashed " + WARM_WHITE + "44", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginBottom: 22, position: "relative", zIndex: 1 }}>
+                  <div style={{ width: "100%", aspectRatio: "3/4", background: WARM_WHITE + "1a", borderRadius: 3, border: "2px dashed " + WARM_WHITE + "44", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", marginBottom: 22, position: "relative", zIndex: 1, overflow: "hidden" }}>
                     <div style={{ fontFamily: "'DM Serif Display',serif", fontSize: 56, fontStyle: "italic", color: WARM_WHITE + "44", fontWeight: 900 }}>{cr.initial}</div>
                     <div style={{ fontFamily: "'DM Sans',sans-serif", fontSize: 12.5, color: WARM_WHITE + "88", letterSpacing: "0.16em", textTransform: "uppercase", marginTop: 6 }}>Add Photo</div>
+                    {cr.photo ? (
+                      <img
+                        src={cr.photo}
+                        alt={cr.name}
+                        onError={function(e) { e.currentTarget.style.display = "none"; }}
+                        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", borderRadius: 1 }}
+                      />
+                    ) : null}
                   </div>
 
                   <div className="display" style={{ fontSize: 38, color: YELLOW, textTransform: "uppercase", textAlign: "center", marginBottom: 8, position: "relative", zIndex: 1 }}>
@@ -697,7 +714,7 @@ export default function App() {
       <WavyDivider color={YELLOW} flip />
 
       {/* SERVICES - Peixou price list style */}
-      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(22px,6vw,96px)", background: WARM_WHITE, position: "relative" }}>
+      <section id="services" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "100px clamp(24px,8vw,120px)", background: WARM_WHITE, position: "relative" }}>
         <div style={{ width: "100%", margin: "0 auto", width: "100%" }}>
           <FadeUp>
             <div style={{ textAlign: "center", marginBottom: 56 }}>
@@ -816,7 +833,7 @@ export default function App() {
       <TornDivider topColor={WARM_WHITE} bottomColor={BLUE} />
 
       {/* CONTACT */}
-      <section id="contact" style={{ padding: "90px clamp(22px,6vw,96px) 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
+      <section id="contact" style={{ padding: "90px clamp(24px,8vw,120px) 100px", background: BLUE, position: "relative", color: WARM_WHITE }}>
         <div style={{ width: "100%", margin: "0 auto" }}>
           <div className="tc" style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "flex-start" }}>
             <FadeUp>
@@ -918,7 +935,7 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ background: DEEP_BLUE, padding: "48px clamp(22px,6vw,96px)", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
+      <footer style={{ background: DEEP_BLUE, padding: "48px clamp(24px,8vw,120px)", color: WARM_WHITE, position: "relative", overflow: "hidden" }}>
         <div style={{ width: "100%", margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <LogoMark size={42} color={YELLOW} />
