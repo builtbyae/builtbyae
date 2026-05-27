@@ -543,7 +543,7 @@ export default function App() {
           </FadeUp>
 
           <div className="fc" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
-            {shownVids.map(function(v, i) { return <VideoCard key={v.num} num={v.num} label={v.label} sub={v.sub} type={v.type} color={v.color} desc={v.desc} idx={i} onOpen={setOpenVid} />; })}
+            {shownVids.map(function(v, i) { return <VideoCard key={v.num} num={v.num} label={v.label} sub={v.sub} type={v.type} color={v.color} desc={v.desc} src={v.src} idx={i} onOpen={setOpenVid} />; })}
           </div>
 
           {/* Bottom CTA strip */}
